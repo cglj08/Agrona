@@ -16,6 +16,9 @@
 #define NOMINMAX
 #include <windows.h>
 
+#ifndef UNICODE
+#define UNICODE
+#endif 
 
 #include <vector>
 #include <memory>

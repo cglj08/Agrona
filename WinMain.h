@@ -11,8 +11,8 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 ATOM MyRegisterClass(HINSTANCE hInstance);
 BOOL InitializeWindowInstance(HINSTANCE, int, int, int, int, int);
 
-LPCWSTR m_windowTitle;
-LPCWSTR m_windowClassName;
+const wchar_t m_windowTitle[] = L"Agrona";
+const wchar_t m_windowClassName[] = L"AgronaMainWindowClass";
 HINSTANCE m_hInstance;
 HWND m_hWindow;
 MSG m_windowMessage;
@@ -22,6 +22,6 @@ float m_screenHeight;
 float m_viewportWidth;
 float m_viewportHeight;
 UINT m_widthUint = 1600;
-UINT m_heightUint = 900;
+UINT m_heightUint = 850;
 bool m_exitGame;
 

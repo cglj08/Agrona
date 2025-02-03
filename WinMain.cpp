@@ -17,15 +17,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
     m_viewportWidth = m_screenWidth;
     m_viewportHeight = m_screenHeight;
 
-    m_windowTitle = L"Agrona";
-    m_windowClassName = L"AgronaMainWindowClass";
-    m_windowMessage = {};
+    m_windowMessage = { };
 
     auto atomReturned = MyRegisterClass(hInstance);
 
     if (!atomReturned) { return 1; }
 
-    if (!InitializeWindowInstance(hInstance, nCmdShow, CW_USEDEFAULT, CW_USEDEFAULT, (int)m_widthUint, (int)m_heightUint)) { return 2; }
+    if (!InitializeWindowInstance(hInstance, nCmdShow, 0, 0, (int)m_widthUint, (int)m_heightUint)) { return 2; }
 
     while (!m_exitGame)
     {
@@ -41,6 +39,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
 
 BOOL InitializeWindowInstance(HINSTANCE hInstance, int nCmdShow, int xPos, int yPos, int windowWidth, int windowHeight)
 {
+
     m_hInstance = hInstance;
 
     m_hWindow = CreateWindowW(m_windowClassName, m_windowTitle, WS_OVERLAPPEDWINDOW, xPos, yPos, windowWidth, windowHeight, nullptr, nullptr, hInstance, nullptr);
@@ -92,6 +91,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
+
     WNDCLASSEXW wcex{};
 
     wcex.cbSize = sizeof(WNDCLASSEX);
